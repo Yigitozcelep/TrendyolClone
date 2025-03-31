@@ -34,6 +34,7 @@ const Search = () => {
 
     useEffect(() => {
         document.addEventListener("mousedown", (e) => {
+            if (!searchResultsDiv.current || !searchDiv.current) return;
             if (!searchDiv.current?.contains(e.target as Node) && !searchResultsDiv.current?.contains(e.target as Node)) {
                 searchResultsDiv.current!.style.visibility = "hidden";
             } else searchResultsDiv.current!.style.visibility = "visible";
