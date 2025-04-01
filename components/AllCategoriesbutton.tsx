@@ -20,7 +20,7 @@ type Props = {}
 const Categories = ({ name, MyIcon, onClickAction, isChosenCategory }: { name: string; MyIcon: IconType, onClickAction: () => void, isChosenCategory: Boolean}) =>  {
     return (
         <div onMouseEnter={() => onClickAction()} className={`group grow-1 w-45 flex items-center bg-[rgb(245,245,245)] hover:cursor-pointer justify-between ${isChosenCategory ? "bg-white" : ""}`}>
-            <div className='flex'>
+            <div className='flex items-center'>
                 <MyIcon  className={`${isChosenCategory ? "text-orange-400" : ""} ml-2 mr-2 text-lg`} /> 
                 <div className={`${isChosenCategory ? "text-orange-400" : ""}`}>{name}</div>
             </div>
@@ -99,8 +99,8 @@ const AllCategoriesbutton = () => {
                             ))}
                             </div>
                             <div className='bg-white flex w-[1060] rounded-br-md'>
-                                {categoryResults[clickedCategory].map(part => 
-                                    <div className='flex flex-col w-1/6 mt-2'>
+                                {categoryResults[clickedCategory].map((part, index) => 
+                                    <div className='flex flex-col w-1/6 mt-2' key={index}>
                                         {part.map(data => 
                                             <CategoryResultLink link={data.link} name={data.name} myType={data.type}  />
                                         )}
@@ -114,5 +114,4 @@ const AllCategoriesbutton = () => {
             </div>
     )
 }
-
 export default AllCategoriesbutton
