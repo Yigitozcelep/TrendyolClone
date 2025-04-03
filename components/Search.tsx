@@ -143,7 +143,8 @@ const Search = () => {
             }
         });
     }, [])
-    
+    const searchResults = data.filter((e) => e.name.toLowerCase().includes(value.toLowerCase()));
+
     return (
         <div ref={searchDiv} className='flex shrink-0 outline-0 focus-within:outline-2 rounded-t-sm focus-within:outline-orange-400 h-full z-10 items-center w-[600]'>
             <div className='w-full h-full bg-gray-200 focus-within:bg-white flex items-center rounded-md'>
@@ -151,8 +152,8 @@ const Search = () => {
                 <GoSearch className='mr-2 text-2xl text-orange-400 stroke-1'/>
 
                 <div ref={searchResultsDiv} className='hidden absolute top-11 pt-3 pb-3 left-[245px] outline-orange-400 bg-white outline-2 rounded-bl-sm rounded-br-sm z-2 w-[600]'>
-                    {value.length <= 2 && <> <PreviousSearches/> <PopulerSearches/> </> }           
-                    {value && (value.length > 2) && data.filter((e) => e.name.toLowerCase().includes(value.toLowerCase())).map((e, index) => (
+                    {(value.length <= 2 || searchResults.length == 0) && <> <PreviousSearches/> <PopulerSearches/> </> }           
+                    {value && (value.length > 2) && searchResults.map((e, index) => (
                         <Link className='block p-2 pl-6 hover:bg-gray-200 text-sm font-medium  border-b-[1] border-gray-100' href={e.link} key={index} onClick={() => saveSearch(e.name, e.link)}>
                             {textOfSearchLink(e.name, value)}
                         </Link>
