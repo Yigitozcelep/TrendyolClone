@@ -39,14 +39,14 @@ const Account = () => {
       document.addEventListener("mousemove", (e) => {
         if (!accountDiv.current?.contains(e.target as Node) && !accountOptionsDiv.current?.contains(e.target as Node)) {
             setMouseOn(false);
-        }
+        } else { }
     })
     },)
     return (
       <>
-        <div ref={accountDiv} className='flex group items-center hover:cursor-pointer' onMouseEnter={() => setMouseOn(true)}>
-          <GoPersonFill style={{strokeWidth: "1.5"}} className='text-xl group-hover:text-orange-400 group-hover:stroke-orange-400 mr-1 text-white stroke-black'/>
-          <Link href={isUserLoggedIn() ? "/Account" : "/Login"} className='group-hover:text-orange-400 text-sm font-medium'>{isUserLoggedIn() ? "Hesabım" : "Giriş Yap"}</Link>
+        <div ref={accountDiv} className="flex group items-center hover:cursor-pointer" onMouseEnter={() => setMouseOn(true)}>
+          <GoPersonFill style={{strokeWidth: "1.5"}} className={`${isMounOn ? " text-orange-400 stroke-orange-400" : "text-white"} text-xl mr-1 stroke-black`}/>
+          <Link href={isUserLoggedIn() ? "/Account" : "/Login"} className={`${isMounOn ? "text-orange-400" : ""} text-sm font-medium`}>{isUserLoggedIn() ? "Hesabım" : "Giriş Yap"}</Link>
       </div>
       {isMounOn && <AccountOptionsBar ref={accountOptionsDiv}/> }
       </>

@@ -37,15 +37,15 @@ const CategoriesNavBar = (props: Props) => {
                         : <Link key={index} href={e.link} className='hover:text-orange-400 flex justify-center grow-1 text-sm'>{e.value}</Link>
                     ))}
                     
-                    <div className={`group flex grow-1 ${pathname === "/CokSatanlar" ? "border-b-3 border-orange-400" : ""} justify-center`}>
+                    <Link href={"/CokSatanlar"} className={`group flex grow-1 ${pathname === "/CokSatanlar" ? "border-b-3 border-orange-400" : ""} justify-center`}>
                         <PiMedalFill style={{strokeWidth: "5"}} className='text-xl mr-1 text-orange-400 stroke-orange-400'/>
-                        <Link href={"/CokSatanlar"} className='group-hover:text-orange-400 flex justify-center text-sm'>Cok Satanlar</Link>
-                    </div>
+                        <p className='group-hover:text-orange-400 flex justify-center text-sm'>Cok Satanlar</p>
+                    </Link>
 
-                    <div className={`group flex grow-1 ${pathname === "/FlashUrunler" ? "border-b-3 border-red-400" : ""} justify-center`}>
+                    <Link href={"/FlashUrunler"} className={`group flex grow-1 ${pathname === "/FlashUrunler" ? "border-b-3 border-red-400" : ""} justify-center`}>
                         <IoFlash style={{strokeWidth: "10"}} className='text-xl mr-1 text-red-400 stroke-red-400'/>
-                        <Link href={"/FlashUrunler"} className='group-hover:text-red-400 flex justify-center text-sm'>Flash Urunler</Link>
-                    </div>
+                        <p  className='group-hover:text-red-400 flex justify-center text-sm'>Flash Urunler</p>
+                    </Link>
                
                 </div>
             </div>

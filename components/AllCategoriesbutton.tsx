@@ -92,7 +92,7 @@ const AllCategoriesbutton = () => {
                 isClicked && (
                     <>
                         <GrayBackGround/>
-                        <div  ref={mainContainer} className='flex absolute top-35 h-155 bg-[rgb(245,245,245)] hover:cursor-pointer rounded-b-md'> 
+                        <div  ref={mainContainer} className='flex absolute top-35 h-155 z-10 bg-[rgb(245,245,245)] hover:cursor-pointer rounded-b-md'> 
                             <div className='flex flex-col h-full pb-5'>
                             {categoryItems.map((e,index) => (
                                 <Categories isChosenCategory={index == clickedCategory} onClickAction={() => setClickedCategory(index)} key={index} name={e.name} MyIcon={e.icon} />

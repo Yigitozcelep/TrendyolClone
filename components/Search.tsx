@@ -90,7 +90,7 @@ const PopulerSearches = () => {
             </div>
             <div className='flex flex-wrap pb-3 pl-3 pr-3 gap-3'>
                 {data.map((e, index) => (
-                    <Link className={`flex items-center p-2 text-sm rounded-md ${e.icon ? "bg-orange-200 hover:outline-2 hover:outline-orange-300" : "border-1 hover:text-orange-500"} hover:border-orange-500`} href={e.link}>
+                    <Link key={index} className={`flex items-center p-2 text-sm rounded-md ${e.icon ? "bg-orange-200 hover:outline-2 hover:outline-orange-300" : "border-1 hover:text-orange-500"} hover:border-orange-500`} href={e.link}>
                         {e.icon && <FaFireAlt className='mr-1 text-orange-500'/>}
                         {e.name}
                     </Link>
